@@ -37,3 +37,28 @@ def SieveOfEratosthenes(n):
         print ("The prime smaller"), 
         print ("than or equal to"), n 
         SieveOfEratosthenes(n)
+
+#Example 3
+#Only select teh list of continen the prime numbers.
+#1. Make a list of all numbers from 2 to n.
+#2. Stargint from 2, delete all of its multiples in the list, except itself.
+#3. Repeat the step 2 till square root of n.
+#4. The remaining list only contains prime numbers.
+
+import math
+
+
+print ("Enter the a number")
+number = int(input())
+
+primes = []
+for i in range(2,number+1):
+    primes.append(i)
+i = 2
+while(i <= int(math.sqrt(number))): 
+    if i in primes:
+        for j in range(i*2, number+1, i):
+            if j in primes:
+                primes.remove(j)
+    i = i+1
+print (primes)
